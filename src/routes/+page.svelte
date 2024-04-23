@@ -13,9 +13,12 @@
 	async function fetchTodos() {
 		const response = await fetch('/api/todo');
 		if (response.ok) {
-			const data = (await response.json()) as { todos: Todo[] };
-			todos = data.todos;
+			const data = (await response.json()) as Todo[];
+			console.log(data);
+			todos = data;
 		}
+
+		console.log('Loaded successful');
 	}
 	onMount(() => {
 		fetchTodos();
